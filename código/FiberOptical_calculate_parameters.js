@@ -38,3 +38,26 @@ function ddisp(Tx,trx,Dmodal,Dcrom,deltal,singlemode){
     }
    
 }
+/**
+ * @function [dmax] Calcula a distancia maxima
+ * @param {number} Pa potencia de entrada em dB
+ * @param {number} S sensibilidade do sensor em dB
+ * @param {number} alfa atenuacao em dB por km
+ * @param {number} Tx taxa de bits por segundo
+ * @param {number} trx tempo de subida em ns
+ * @param {number} Dmodal dispersao modal em ns / km
+ * @param {number} Dcrom dispersao cromatica em ns / nm km
+ * @param {number} deltal largura espectral do laser em nm
+ * @param {boolean} singlemode verdadeiro se a fibra for singlemode
+ * @returns distancia maxima em km
+ */
+function dmax(Pa,S,alfa,Tx,trx,Dmodal,Dcrom,deltal,singlemode){
+    
+    distA = datenuacao(Pa,S,alfa);
+    distD = ddisp(Tx,trx,Dmodal,Dcrom,deltal,singlemode);
+    if (distA > distD){
+        
+        return distD;
+    }
+    return distA;
+}
