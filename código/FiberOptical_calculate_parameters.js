@@ -30,11 +30,11 @@ function ddisp(Tx,trx,Dmodal,Dcrom,deltal,singlemode){
     tdisp = 0.1*Tbit*Math.pow(10,9);
     if (singlemode){
         
-        return (Math.pow(tdisp,2) - Math.pow(trx,2))/(deltal*Dcrom);
+        return Math.sqrt(Math.pow(tdisp,2) - Math.pow(trx,2))/(deltal*Dcrom);
         
     } 
     else{
-        return (Math.pow(tdisp,2) - Math.pow(trx,2))/Dmodal;
+        return Math.sqrt(Math.pow(tdisp,2) - Math.pow(trx,2))/Dmodal;
     }
    
 }
