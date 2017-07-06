@@ -31,7 +31,7 @@ function calcular() {
     var Pa = document.getElementsByName("Pa")[0].value;
     var S = document.getElementsByName("S")[0].value;
     var alfa = document.getElementsByName("alfa")[0].value;
-    var Tx = document.getElementsByName("Tx")[0].value;
+    var Tx = document.getElementsByName("Tx")[0].value * Math.pow(10, 6);
     var Brx = document.getElementsByName("Brx")[0].value;
     var Dmodal = document.getElementsByName("Dmodal")[0].value;
     var Dcrom = document.getElementsByName("Dcrom")[0].value;

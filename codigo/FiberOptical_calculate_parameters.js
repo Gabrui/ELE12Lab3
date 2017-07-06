@@ -47,6 +47,8 @@ function ddisp(Tx,Brx,Dmodal,Dcrom,deltal,singlemode){
     }
    
 }
+
+
 /**
  * @function [dmax] Calcula a distancia maxima
  * @param {number} Pa potencia de entrada em dB
