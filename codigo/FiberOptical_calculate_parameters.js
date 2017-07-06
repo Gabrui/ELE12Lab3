@@ -69,9 +69,40 @@ function dmax(Pa,S,alfa,Tx,Brx,Dmodal,Dcrom,deltal,singlemode){
     /*calculo da distancia maxima
      * considerando balanco de tempo de atraso*/
     distD = ddisp(Tx,Brx,Dmodal,Dcrom,deltal,singlemode);
-    if (distA > distD){
-        
+    if (distA > distD || isNaN(distD)){
         return distD;
     }
     return distA;
+}
+
+/**
+ * @function [TxT] Calcula a taxa de trasmissao em Gigabits por segundo
+ * @param {number} d distancia em km
+ * @param {number} Brx tempo de subida em MHz
+ * @constant {number} trx tempo de subida em ns
+ * @constant {number} tdisp tempo de atraso por dispersao em ns
+ * @param {number} Dmodal dispersao modal em ns / km
+ * @param {number} Dcrom dispersao cromatica em ns / nm km
+ * @param {number} deltal largura espectral do laser em nm
+ * @param {boolean} singlemode verdadeiro se a fibra for singlemode
+ * @returns distancia maxima em km
+ */
+function TxT(d,Brx,Dmodal,Dcrom,deltal,singlemode){
+    
+    /*Calculo do tempo de subida*/
+    trx = 0.44/Brx;
+    /*Transformando de microsegundo para nanosegundo*/
+    trx = trx*1000;
+    if (singlemode){
+        
+        tdisp = d*deltal*Dcrom;
+        return 0.1/Math.sqrt(Math.pow(tdisp,2) + Math.pow(trx,2));
+        
+    } 
+    else{
+        
+        tdisp = d*Dmodal;
+        return 0.1/Math.sqrt(Math.pow(tdisp,2) + Math.pow(trx,2));
+    }
+   
 }
