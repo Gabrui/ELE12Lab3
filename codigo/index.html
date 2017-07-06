@@ -50,12 +50,12 @@
 	</select></td>
       </tr>
       <tr class='sm'>
-        <td>$D_{crom} \text{ Dispersão Cromática } (ns/nm km)$</td> 
-        <td><input type="number" name="Dcrom" step="any" value="200"></td>
+        <td>$D_{crom} \text{ Dispersão Cromática } (ps/nm km)$</td> 
+        <td><input type="number" name="Dcrom" step="any" value="1.2"></td>
       </tr>
       <tr class='sm'>
         <td>$\Delta \lambda_{laser} \text{ Largura Espectral do laser } (nm)$</td> 
-        <td><input type="number" name="deltal" step="any" value="2"></td>
+        <td><input type="number" name="deltal" step="any" value="7"></td>
       </tr>
       <tr class='mm' style='display:none'>
         <td>$D_{modal} \text{ Dispersão Modal } (ns/km)$</td> 
@@ -74,6 +74,7 @@
 
 <div id="respostas"></div>
 
+<div  id="grafico" style="width: 1300px; height: 700px; margin: auto"></div>
 
 </body>
 </html>
