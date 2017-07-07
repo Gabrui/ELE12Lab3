@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>codigo.js</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; background-color: #e9eff8}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment-line {color: #969696}
+.ST3 {color: #009900}
+.keyword {color: #0000e6}
+.ST2 {color: #9f0d79}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\Dylan N. Sugimoto\Desktop\Lab-3_ELE-12\ELE12Lab3\codigo\codigo.js</td></tr></table>
+<pre>
+ 1 <span class="ST0">//UTILIZA A BIBLIOTECA math.js para o cÃ¡lculo com nÃºmeros complexos</span>
+ 2 
+ 3 <span class="comment-line">/*</span> <span class="comment-line">global</span> <span class="comment-line">MathJax</span><span class="comment-line">,</span> <span class="comment-line">Plotly</span> <span class="comment-line">*/</span>
+ 4 
+ 5 
+ 6 <span class="keyword">function</span> <span class="ST1">mudarEntradas</span>() {
+ 7     <span class="keyword">var</span> singlemode = <span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">singlemode</span><span class="string">&quot;</span>)[0].value;
+ 8     <span class="keyword">var</span> MMs = <span class="ST2">document</span>.getElementsByClassName(<span class="string">&quot;</span><span class="string">mm</span><span class="string">&quot;</span>);
+ 9     <span class="keyword">var</span> SMs = <span class="ST2">document</span>.getElementsByClassName(<span class="string">&quot;</span><span class="string">sm</span><span class="string">&quot;</span>);
+10     <span class="keyword">if</span> (singlemode) {
+11         <span class="keyword">for</span> (<span class="keyword">var</span> i = MMs.length; i &gt; 0; i--) {
+12             MMs[i-1].style.display = <span class="string">&#39;</span><span class="string">none</span><span class="string">&#39;</span>;
+13         }
+14         <span class="keyword">for</span> (<span class="keyword">var</span> i = SMs.length; i &gt; 0; i--) {
+15             SMs[i-1].style.display = <span class="string">&#39;</span><span class="string">&#39;</span>;
+16         }
+17     } <span class="keyword">else</span> {
+18         <span class="keyword">for</span> (<span class="keyword">var</span> i = MMs.length; i &gt; 0; i--) {
+19             MMs[i-1].style.display = <span class="string">&#39;</span><span class="string">&#39;</span>;
+20         }
+21         <span class="keyword">for</span> (<span class="keyword">var</span> i = SMs.length; i &gt; 0; i--) {
+22             SMs[i-1].style.display = <span class="string">&#39;</span><span class="string">none</span><span class="string">&#39;</span>;
+23         }
+24     }
+25 
+26 }
+27 
+28 
+29 <span class="keyword">function</span> <span class="ST1">calcular</span>() {
+30 
+31     <span class="keyword">var</span> Pa = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">Pa</span><span class="string">&quot;</span>)[0].value);
+32     <span class="keyword">var</span> S = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">S</span><span class="string">&quot;</span>)[0].value);
+33     <span class="keyword">var</span> alfa = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">alfa</span><span class="string">&quot;</span>)[0].value);
+34     <span class="keyword">var</span> Tx = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">Tx</span><span class="string">&quot;</span>)[0].value) * <span class="ST2">Math</span>.pow(10, 6);
+35     <span class="keyword">var</span> Brx = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">Brx</span><span class="string">&quot;</span>)[0].value);
+36     <span class="keyword">var</span> Dmodal = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">Dmodal</span><span class="string">&quot;</span>)[0].value);
+37     <span class="keyword">var</span> Dcrom = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">Dcrom</span><span class="string">&quot;</span>)[0].value)/1000;
+38     <span class="keyword">var</span> deltal = Number(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">deltal</span><span class="string">&quot;</span>)[0].value);
+39     <span class="keyword">var</span> singlemode = Boolean(<span class="ST2">document</span>.getElementsByName(<span class="string">&quot;</span><span class="string">singlemode</span><span class="string">&quot;</span>)[0].value);
+40 
+41     <span class="ST2">lmax</span> = dmax(Pa,S,alfa,Tx,Brx,Dmodal,Dcrom,deltal,singlemode);
+42 
+43     <span class="keyword">if</span> (isNaN(<span class="ST2">lmax</span>)) {
+44         <span class="ST2">texto</span> = <span class="string">&quot;</span><span class="string">$ \\text{ NÃ£o hÃ¡ nenhum comprimento para a taxa de bits especificada. }$</span><span class="string">&quot;</span>;
+45     } <span class="keyword">else</span> {
+46         <span class="ST2">lmax</span> = <span class="ST2">lmax</span>.toFixed(2);
+47         <span class="ST2">texto</span> = <span class="string">&quot;</span><span class="string">$ \\text{Comprimento mÃ¡ximo da Fibra } = </span><span class="string">&quot;</span> + <span class="ST2">lmax</span> +<span class="string">&quot;</span><span class="string"> km$</span><span class="string">&quot;</span>;
+48     }
+49 
+50     <span class="ST2">document</span>.getElementById(<span class="string">&quot;</span><span class="string">respostas</span><span class="string">&quot;</span>).<span class="ST3">innerHTML</span> = <span class="ST2">texto</span>;
+51     <span class="ST2">MathJax</span>.Hub.Queue([<span class="string">&quot;</span><span class="string">Typeset</span><span class="string">&quot;</span>,<span class="ST2">MathJax</span>.Hub,<span class="string">&quot;</span><span class="string">respostas</span><span class="string">&quot;</span>]);
+52     
+53     <span class="keyword">var</span> comprimentos = [];
+54     <span class="keyword">var</span> taxas = [];
+55     
+56     <span class="keyword">var</span> comprimentoMax = datenuacao(Pa,S,alfa);
+57     <span class="keyword">var</span> comprimentoMin = comprimentoMax/100;
+58     <span class="keyword">var</span> passo = 100;
+59     
+60     <span class="keyword">for</span> (<span class="keyword">var</span> i = 0; i &lt; passo; i++) {
+61         comprimentos[i] = comprimentoMin + i/passo*(comprimentoMax-comprimentoMin);
+62         taxas[i] = TxT(comprimentos[i],Brx,Dmodal,Dcrom,deltal,singlemode);
+63     }
+64     
+65 
+66     <span class="keyword">var</span> dados = [{
+67         <span class="ST3">x</span>: comprimentos,
+68         <span class="ST3">y</span>: taxas,
+69         <span class="ST3">mode</span>: <span class="string">&#39;</span><span class="string">lines</span><span class="string">&#39;</span>,
+70         <span class="ST1">line</span>: {<span class="ST3">shape</span>: <span class="string">&#39;</span><span class="string">spline</span><span class="string">&#39;</span>},
+71         <span class="ST3">type</span>: <span class="string">&#39;</span><span class="string">scatter</span><span class="string">&#39;</span>
+72     }];
+73 
+74     <span class="keyword">var</span> <span class="ST1">estilo</span> = {
+75         <span class="ST3">title</span>: <span class="string">&#39;</span><span class="string">AnÃ¡lise de Taxa de TransmissÃ£o</span><span class="string">&#39;</span>,
+76         <span class="ST1">xaxis</span>: {
+77             <span class="ST3">title</span>: <span class="string">&#39;</span><span class="string">Comprimento (Km)</span><span class="string">&#39;</span>
+78         },
+79         <span class="ST1">yaxis</span>: {
+80             <span class="ST3">title</span>: <span class="string">&#39;</span><span class="string">Taxa de TransmissÃ£o (Mbits/s)</span><span class="string">&#39;</span>
+81         }
+82     };
+83 
+84     <span class="ST2">Plotly</span>.newPlot(<span class="string">&#39;</span><span class="string">grafico</span><span class="string">&#39;</span>, dados, estilo);
+85 
+86 
+87 }
+</pre></body>
+</html>
