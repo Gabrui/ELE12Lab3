@@ -23,24 +23,24 @@
 <form id="entradas" action="">
   <table class ="entrada">
       <tr>
-        <td>$Pot_{laser} (dB)$</td> 
-        <td><input type="number" name="Pa" step="any" value="30"></td>
+        <td>$\text{ Potência do emissor } \;\;\ P_i :$</td> 
+        <td><input type="number" name="Pa" step="any" value="30">$ (dBm) $</td>
       </tr>
       <tr>
-        <td>$Sensibilidade_{receptor} (dB)$</td> 
-        <td><input type="number" name="S" step="any" value="-90"></td>
+        <td>$\text{ Sensibilidade do Receptor } \;\;\ P_o :$</td> 
+        <td><input type="number" name="S" step="any" value="-90">$ (dBm) $</td>
       </tr>
       <tr>
-        <td>$\alpha \text{ Atenuação } (dB/km)$</td> 
-        <td><input type="number" name="alfa" step="any" value="3"></td>
+        <td>$\text{ Atenuação } \;\;\ \alpha :$</td> 
+        <td><input type="number" name="alfa" step="any" value="3">$ (dBm/km) $</td>
       </tr>
       <tr>
-        <td>$Tx (Mbits/s)$</td> 
-        <td><input type="number" name="Tx" step="any" value="80"></td>
+        <td>$\text{ Taxa de Transmissão } \;\;\ Tx :$</td> 
+        <td><input type="number" name="Tx" step="any" value="80">$ (Mbits/s) $</td>
       </tr>
       <tr>
-        <td>$Brx \text{ Largura de Banda } (MHz)$</td> 
-        <td><input type="number" name="Brx" step="any" value="400"></td>
+        <td>$ \text{ Largura de Banda } \;\;\ Brx:$</td> 
+        <td><input type="number" name="Brx" step="any" value="400">$ (MHz) $</td>
       </tr>
       <tr>
         <td>$\text{ Tipo de Fibra }$</td> 
@@ -50,16 +50,16 @@
 	</select></td>
       </tr>
       <tr class='sm'>
-        <td>$D_{crom} \text{ Dispersão Cromática } (ps/nm km)$</td> 
-        <td><input type="number" name="Dcrom" step="any" value="1.2"></td>
+        <td>$ \text{ Dispersão Cromática } \;\;\ D_{crom}:$</td> 
+        <td><input type="number" name="Dcrom" step="any" value="1.2">$ (ps/nm \cdot km) $</td>
       </tr>
       <tr class='sm'>
-        <td>$\Delta \lambda_{laser} \text{ Largura Espectral do laser } (nm)$</td> 
-        <td><input type="number" name="deltal" step="any" value="7"></td>
+        <td>$ \text{ Largura Espectral do laser } \;\;\ \Delta \lambda_{laser} :$</td> 
+        <td><input type="number" name="deltal" step="any" value="7">$ (nm) $</td>
       </tr>
       <tr class='mm' style='display:none'>
-        <td>$D_{modal} \text{ Dispersão Modal } (ns/km)$</td> 
-        <td><input type="number" name="Dmodal" step="any" value="5"></td>
+        <td>$ \text{ Dispersão Modal } \;\;\ D_{modal}:$</td> 
+        <td><input type="number" name="Dmodal" step="any" value="5">$ (ns/km) $</td>
       </tr>
     </table>
 </form>
