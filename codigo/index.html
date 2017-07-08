@@ -17,7 +17,7 @@
 </head>
     
 
-<body>
+<body onload="mudarEntradas()">
 <h1> Lab 3 - ELE-12 - Fibras Ópticas</h1>        
 <p> Especifique os parâmetros para calcular o comprimento da fibra:</p>
 <form id="entradas" action="">
@@ -27,20 +27,20 @@
         <td><input type="number" name="Pa" step="any" value="30">$ (dBm) $</td>
       </tr>
       <tr>
-        <td>$\text{ Sensibilidade do Receptor } \;\;\ P_o :$</td> 
+        <td>$\text{ Sensibilidade do Receptor } \;\;\ S :$</td> 
         <td><input type="number" name="S" step="any" value="-90">$ (dBm) $</td>
       </tr>
       <tr>
         <td>$\text{ Atenuação } \;\;\ \alpha :$</td> 
-        <td><input type="number" name="alfa" step="any" value="3">$ (dBm/km) $</td>
+        <td><input type="number" name="alfa" step="any" value="1">$ (dB/km) $</td>
       </tr>
       <tr>
         <td>$\text{ Taxa de Transmissão } \;\;\ Tx :$</td> 
         <td><input type="number" name="Tx" step="any" value="80">$ (Mbits/s) $</td>
       </tr>
       <tr>
-        <td>$ \text{ Largura de Banda } \;\;\ Brx:$</td> 
-        <td><input type="number" name="Brx" step="any" value="400">$ (MHz) $</td>
+        <td>$ \text{ Largura de Faixa } \;\;\ Brx:$</td> 
+        <td><input type="number" name="Brx" step="any" value="800">$ (MHz) $</td>
       </tr>
       <tr>
         <td>$\text{ Tipo de Fibra }$</td> 
